@@ -1,4 +1,4 @@
-# [GestorDeNombres](https://davidfrontenddev.github.io/GestorDeNombres/)
+# [👤 GestorDeNombres](https://davidfrontenddev.github.io/GestorDeNombres/)
 
 - El proyecto consiste en crear una aplicación web que permita a los usuarios realizar operaciones relacionadas con nombres, como:
 
