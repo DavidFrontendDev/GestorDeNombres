@@ -37,7 +37,8 @@ main {
   gap: 20px;
   flex-wrap: wrap;
 }
-.agregar button {
+.agregar button,
+#ordenar {
   padding: 9px;
   border-radius: 5px;
   cursor: pointer;

@@ -1,6 +1,7 @@
 const main = document.querySelector("main");
 const agregar = document.querySelector("#nombre");
 const buscador = document.querySelector("#buscador");
+const botonOrdenar = document.querySelector("#ordenar");
 let nombres = ["Juan", "María", "Pedro"]; // Nombres iniciales por defecto
 
 renderDefaultNames();
@@ -91,3 +92,10 @@ function filtrarNombres() {
   });
 }
 buscador.addEventListener("input", filtrarNombres);
+
+function ordenarAlfabeticamente() {
+  nombres.sort((a, b) => a.localeCompare(b)); // metodo para ordenar alfabeticamente
+  main.innerHTML = "";
+  renderDefaultNames();
+}
+botonOrdenar.addEventListener("click", ordenarAlfabeticamente);
