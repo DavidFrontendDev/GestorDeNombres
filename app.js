@@ -2,11 +2,24 @@ const main = document.querySelector("main");
 const agregar = document.querySelector("#nombre");
 const buscador = document.querySelector("#buscador");
 const botonOrdenar = document.querySelector("#ordenar");
-let nombres = ["Juan", "María", "Pedro"]; // Nombres iniciales por defecto
+
+// Cargar nombres desde localStorage o usar valores por defecto
+let nombres = JSON.parse(localStorage.getItem("nombres")) || [
+  "Juan",
+  "María",
+  "Pedro",
+];
 
 renderDefaultNames();
+
+// Guardar en localStorage
+function guardarEnLocalStorage() {
+  localStorage.setItem("nombres", JSON.stringify(nombres));
+}
+
 // Renderizar nombres iniciales
 function renderDefaultNames() {
+  main.innerHTML = "";
   nombres.forEach((nombre) => {
     agregarNombre(nombre);
   });
@@ -14,7 +27,6 @@ function renderDefaultNames() {
 
 // Crear y agregar un nombre al DOM
 function agregarNombre(valorNombre) {
-  // Crear nodos
   const div = document.createElement("div");
   const h2 = document.createElement("h2");
   const divBotones = document.createElement("div");
@@ -42,8 +54,9 @@ function agregarNombre(valorNombre) {
     const indice = nombres.indexOf(h2.textContent);
     if (nuevoNombre) {
       nombres[indice] = nuevoNombre;
+      guardarEnLocalStorage();
       h2.textContent = nuevoNombre;
-      filtrarNombres(); // si estamos buscando y editamos o eliminamos un Div llamaremos a filtrar para que se actualize los elementos que mostramos!!
+      filtrarNombres();
     }
   });
 
@@ -51,6 +64,7 @@ function agregarNombre(valorNombre) {
     div.remove();
     const indice = nombres.indexOf(h2.textContent);
     nombres.splice(indice, 1);
+    guardarEnLocalStorage();
     filtrarNombres();
   });
 
@@ -72,6 +86,7 @@ function crearNombre() {
     agregar.value = "";
   } else {
     nombres.push(valorNombre);
+    guardarEnLocalStorage();
     agregarNombre(valorNombre);
     agregar.value = "";
   }
@@ -93,9 +108,10 @@ function filtrarNombres() {
 }
 buscador.addEventListener("input", filtrarNombres);
 
+// Ordenar nombres alfabéticamente
 function ordenarAlfabeticamente() {
   nombres.sort((a, b) => a.localeCompare(b)); // metodo para ordenar alfabeticamente
-  main.innerHTML = "";
+  guardarEnLocalStorage();
   renderDefaultNames();
 }
 botonOrdenar.addEventListener("click", ordenarAlfabeticamente);
