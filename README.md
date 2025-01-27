@@ -13,3 +13,13 @@
   - Usar LocalStorage para la persistencia de datos.
 
 # Escritorio:
+
+[![Imagen](https://i.imgur.com/mAF0vJ2.png)](https://davidfrontenddev.github.io/GestorDeNombres/)
+
+# Tablet:
+
+[![Imagen](https://i.imgur.com/RQiW8BB.png)](https://davidfrontenddev.github.io/GestorDeNombres/)
+
+# Movil:
+
+[![Imagen](https://i.imgur.com/O2ynEPm.png)](https://davidfrontenddev.github.io/GestorDeNombres/)
