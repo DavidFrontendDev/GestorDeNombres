@@ -1,5 +1,6 @@
 # [👤 GestorDeNombres](https://davidfrontenddev.github.io/GestorDeNombres/)
 
+- Las palabras a adivinar estan orientadas al ámbito tecnológico.
 - El proyecto consiste en crear una aplicación web que permita a los usuarios realizar operaciones relacionadas con nombres, como:
 
   - Añadir nombres: Los usuarios pueden ingresar nombres a una lista.
